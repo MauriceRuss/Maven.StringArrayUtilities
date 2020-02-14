@@ -1,9 +1,13 @@
 package com.zipcodewilmington;
 
+import java.util.Arrays;
+
 /**
  * Created by leon on 1/29/18.
  */
 public class StringArrayUtils {
+    private static String[] copyOf;
+
     /**
      * @param array array of String objects
      * @return first element of specified array
@@ -25,7 +29,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return array[array.length-1];
+        return array[array.length - 1];
     }
 
     /**
@@ -33,7 +37,7 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return array[array.length- 2];
+        return array[array.length - 2];
     }
 
     /**
@@ -42,8 +46,8 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
-        for(String s : array){
-            if(s == value){
+        for (String s : array) {
+            if (s == value) {
                 return true;
             }
 
@@ -57,10 +61,10 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        for(int q= 0; q < array.length/2; q++){
+        for (int q = 0; q < array.length / 2; q++) {
             String reverse = array[q];
             array[q] = array[array.length - q - 1];
-            array[array.length - q -1] = reverse;
+            array[array.length - q - 1] = reverse;
 
         }
 
@@ -73,14 +77,13 @@ public class StringArrayUtils {
      */ // TODO
     //reverse array with a loop revArray
     //compare array to revArray with if statement
-
     public static boolean isPalindromic(String[] array) {
-       for(int q = 0; q <= array.length / 2 && array.length != 0; q++) {
-               if (array[q] != array[array.length -q - 1]) {
-                   break;
-               }
-                   return true;
-               }
+        for (int q = 0; q <= array.length / 2 && array.length != 0; q++) {
+            if (array[q] != array[array.length - q - 1]) {
+                break;
+            }
+            return true;
+        }
 
 
         return false;
@@ -90,8 +93,30 @@ public class StringArrayUtils {
      * @param array array of String objects
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
+    // change array
     public static boolean isPangramic(String[] array) {
-        return false;
+        int charCount = 0;
+        String isPanArr = Arrays.toString(array).toLowerCase();
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+        for(int i = 0; i < alpha.length(); i++){
+            for(int j= 0; j < isPanArr.length(); j++){
+                if (alpha.charAt(i) == isPanArr.charAt(j)) {
+                    charCount++;
+                    break;
+
+
+                }
+
+
+            }
+        }
+        if(charCount == 26){
+            return true;
+        }
+            return false;
+
+
+
     }
 
     /**
@@ -100,7 +125,15 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int answer = 0;
+        for (int q = 0; q < array.length; q++) {
+            if (array[q].equals(value)) {
+                answer++;
+            }
+
+        }
+
+        return answer;
     }
 
     /**
@@ -109,8 +142,24 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+       String[] answerArray = new String[array.length - 1];
+        //String index = "";
+        for (int i= 0; i < array.length; i++) {
+            if (!array[i].equals(valueToRemove) && ) {
+
+
+                answerArray[i] = array[i];
+            }
+
+        }
+
+
+        return answerArray;
     }
+
+
+
+
 
     /**
      * @param array array of chars
