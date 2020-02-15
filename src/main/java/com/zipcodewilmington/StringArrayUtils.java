@@ -166,15 +166,44 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        int counter = 0;
+        String newArStr = "";
+        String temp = array[0];
+        for(int q = 0;q <array.length;q++){
+            if(array[q] == temp){
+                newArStr += array[q];
+            }else {
+                newArStr += " " + array[q];
+                temp = array[q];
+            }
+            System.out.println(temp);
+
+        }
+        String[] answer = temp.split(" ");
+        return answer;
     }
 
     /**
      * @param array array of chars
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
-    public static String[] packConsecutiveDuplicates(String[] array) {
-        return null;
+    public static String[] packConsecutiveDuplicates(String[] array) {int counter = 0;
+        String newArStr = "";
+        String temp = array[0];
+        for(int q = 0;q <array.length;q++){
+            if(array[q] == temp){
+                newArStr += array[q];
+            }else {
+                newArStr += " " + array[q];
+                temp = array[q];
+            }
+
+
+        }
+
+        String[] answer = newArStr.split(" ");
+        System.out.println(newArStr);
+        return answer;
     }
 
 
