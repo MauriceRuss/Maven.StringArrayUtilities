@@ -1,5 +1,6 @@
 package com.zipcodewilmington;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -143,15 +144,14 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
        String[] answerArray = new String[array.length - 1];
-        //String index = "";
-        for (int i= 0; i < array.length; i++) {
-            if (!array[i].equals(valueToRemove) && ) {
+       int count =0;
 
-
-                answerArray[i] = array[i];
+        for (String i : array) {
+            if (!i.equals(valueToRemove)) {
+                answerArray[count++] = i;
             }
+          }
 
-        }
 
 
         return answerArray;
