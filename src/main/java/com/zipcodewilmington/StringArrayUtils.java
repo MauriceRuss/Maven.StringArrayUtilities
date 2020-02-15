@@ -166,20 +166,17 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        int counter = 0;
-        String newArStr = "";
-        String temp = array[0];
-        for(int q = 0;q <array.length;q++){
-            if(array[q] == temp){
-                newArStr += array[q];
-            }else {
-                newArStr += " " + array[q];
-                temp = array[q];
-            }
-            System.out.println(temp);
+        String newArStr = array[0];
+        for(int q = 1; q < array.length; q++){
+            if(array[q] == array[q-1]){
 
+            }
+            else if(array[q] != array[q- 1]){
+                newArStr += " " + array[q];
+                System.out.println(newArStr);
+            }
         }
-        String[] answer = temp.split(" ");
+        String[] answer = newArStr.split(" ");
         return answer;
     }
 
